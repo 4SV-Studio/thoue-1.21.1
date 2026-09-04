@@ -5,6 +5,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.GameType;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -25,12 +26,16 @@ public class HealthBarRenderer {
 
     private static float previousHealth = -1;
     private static float displayedIntermediateHealth = 0;
+    private static float maxAbsorption = 0;
 
     @SubscribeEvent
     static void onRenderGuiPost(RenderGuiEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
         Player player = mc.player;
         if (player == null || mc.options.hideGui) return;
+
+        GameType gameMode = mc.gameMode.getPlayerMode();
+        if (gameMode != GameType.SURVIVAL && gameMode != GameType.ADVENTURE) return;
 
         float maxHealth = player.getMaxHealth();
         float health = player.getHealth();
@@ -76,19 +81,24 @@ public class HealthBarRenderer {
             drawBar(guiGraphics, INTERMEDIATE, centerX, barY, displayedIntermediateHealth / maxHealth);
         }
 
-        if (absorption > 0) {
-            float totalPercent = Math.min((health + absorption) / maxHealth, 1.0f);
-            drawBar(guiGraphics, ABSORPTION, centerX, barY, totalPercent);
-        }
-
         if (health > 0) {
             drawBar(guiGraphics, heartsTexture, centerX, barY, health / maxHealth);
+        }
+
+        if (absorption > 0) {
+            if (absorption >= maxAbsorption || maxAbsorption <= 0) {
+                maxAbsorption = absorption;
+            }
+            drawBar(guiGraphics, ABSORPTION, centerX, barY, absorption / maxAbsorption);
+        } else {
+            maxAbsorption = 0;
         }
     }
 
     private static void drawBar(GuiGraphics guiGraphics, ResourceLocation texture, int centerX, int y, float percent) {
         if (percent <= 0) return;
-        int visibleWidth = Math.max(1, Math.min((int) (percent * BAR_WIDTH), BAR_WIDTH));
+        int visibleWidth = Math.max(2, Math.min((int) (percent * BAR_WIDTH), BAR_WIDTH));
+        if (visibleWidth % 2 != 0) visibleWidth--;
         float uOffset = (BAR_WIDTH - visibleWidth) / 2.0f;
         int x = centerX - visibleWidth / 2;
         guiGraphics.blit(texture, x, y, uOffset, 0.0f, visibleWidth, BAR_HEIGHT, BAR_WIDTH, BAR_HEIGHT);
