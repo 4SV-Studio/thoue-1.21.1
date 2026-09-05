@@ -17,7 +17,7 @@ public class XpCounterRenderer {
     // Базовый отступ фона от правого края экрана.
     // Уменьшается на SHIFT_PER_DIGIT за каждый новый разряд числа опыта.
     private static final int BG_RIGHT_MARGIN_BASE = 20 - 130;
-    private static final int SHIFT_PER_DIGIT = -6;
+    private static final int SHIFT_PER_DIGIT = -5;
     private static final int BG_BOTTOM_MARGIN = 40;
     // Текст: отступ от левого края фона (положительное — внутрь бара)
     private static final int TEXT_OFFSET_X = 20;

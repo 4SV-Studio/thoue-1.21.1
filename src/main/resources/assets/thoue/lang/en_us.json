@@ -1,13 +1,3 @@
 {
-  "itemGroup.thoue": "Example Mod Tab",
-  "block.thoue.example_block": "Example Block",
-  "item.thoue.example_item": "Example Item",
-
-  "thoue.configuration.title": "The Heart of Universe Engine Configs",
-  "thoue.configuration.section.thoue.common.toml": "The Heart of Universe Engine Configs",
-  "thoue.configuration.section.thoue.common.toml.title": "The Heart of Universe Engine Configs",
-  "thoue.configuration.items": "Item List",
-  "thoue.configuration.logDirtBlock": "Log Dirt Block",
-  "thoue.configuration.magicNumberIntroduction": "Magic Number Text",
-  "thoue.configuration.magicNumber": "Magic Number"
+  "container.enchant.level.requirement": "Sparks Requirement: %s"
 }
