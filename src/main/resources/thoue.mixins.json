@@ -9,6 +9,7 @@
   "client": [
     "AnvilScreenMixin",
     "EnchantmentScreenMixin",
-    "ExperienceOrbRendererMixin"
+    "ExperienceOrbRendererMixin",
+    "ParticleEngineMixin"
   ]
 }

@@ -75,6 +75,8 @@ public class TheHeartofUniverseEngine {
         ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
+        // Register the Deferred Register for particle types
+        ModParticles.PARTICLES.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (TheHeartofUniverseEngine) to respond directly to events.
