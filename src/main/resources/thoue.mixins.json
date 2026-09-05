@@ -8,6 +8,7 @@
   },
   "client": [
     "AnvilScreenMixin",
-    "EnchantmentScreenMixin"
+    "EnchantmentScreenMixin",
+    "ExperienceOrbRendererMixin"
   ]
 }
