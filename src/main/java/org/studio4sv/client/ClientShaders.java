@@ -14,6 +14,8 @@ public class ClientShaders {
 
     public static ShaderInstance flash;
 
+    public static ShaderInstance orb;
+
     @SubscribeEvent
     public static void onRegisterShaders(RegisterShadersEvent event) {
         // Custom core shader that renders particles WITHOUT sampling the block/sky
@@ -29,6 +31,17 @@ public class ClientShaders {
                     shader -> ClientShaders.flash = shader);
         } catch (Exception e) {
             TheHeartofUniverseEngine.LOGGER.error("Failed to register thoue:flash shader", e);
+        }
+
+        try {
+            event.registerShader(
+                    new ShaderInstance(
+                            event.getResourceProvider(),
+                            ResourceLocation.fromNamespaceAndPath(TheHeartofUniverseEngine.MODID, "orb"),
+                            DefaultVertexFormat.PARTICLE),
+                    shader -> ClientShaders.orb = shader);
+        } catch (Exception e) {
+            TheHeartofUniverseEngine.LOGGER.error("Failed to register thoue:orb shader", e);
         }
     }
 }

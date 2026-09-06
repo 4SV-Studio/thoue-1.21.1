@@ -46,6 +46,11 @@ public class FlashParticle extends TextureSheetParticle {
         }
 
         @Override
+        public boolean isTranslucent() {
+            return false;
+        }
+
+        @Override
         public String toString() {
             return "THOUE_TRANSLUCENT_NO_DEPTH";
         }
