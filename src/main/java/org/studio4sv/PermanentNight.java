@@ -21,10 +21,7 @@ public class PermanentNight {
         if (!(level instanceof ServerLevel serverLevel)) {
             return;
         }
-        long day = serverLevel.getGameTime() / 24000L;
-        if (serverLevel.getDayTime() % 24000L != 18000L) {
-            serverLevel.setDayTime(18000L + day * 24000L);
-        }
+        serverLevel.setDayTime(18000L);
     }
 
     @SubscribeEvent(priority = EventPriority.LOW)

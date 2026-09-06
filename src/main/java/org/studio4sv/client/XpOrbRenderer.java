@@ -58,6 +58,9 @@ public class XpOrbRenderer extends EntityRenderer<ExperienceOrb> {
                     .createCompositeState(false));
 
     private static RenderType getRenderType() {
+        if (ShaderpackUtil.isShaderpackActive()) {
+            return RenderType.itemEntityTranslucentCull(TEXTURE);
+        }
         if (ClientShaders.orb != null) {
             return ORB_RENDER_TYPE;
         }
@@ -81,7 +84,7 @@ public class XpOrbRenderer extends EntityRenderer<ExperienceOrb> {
 
         poseStack.translate(0.0F, 0.25F, 0.0F);
         poseStack.mulPose(this.entityRenderDispatcher.cameraOrientation());
-        poseStack.scale(0.3F, 0.3F, 0.3F);
+        poseStack.scale(0.21F, 0.21F, 0.21F);
 
         float spin = (orb.tickCount + partialTick) / SPIN_TICKS * FULL_ROTATION;
         poseStack.mulPose(Axis.ZP.rotation(spin));
@@ -100,7 +103,7 @@ public class XpOrbRenderer extends EntityRenderer<ExperienceOrb> {
     }
 
     private static void vertex(VertexConsumer consumer, PoseStack.Pose pose, float x, float y, float u, float v) {
-        if (ClientShaders.orb != null) {
+        if (ClientShaders.orb != null && !ShaderpackUtil.isShaderpackActive()) {
             consumer.addVertex(pose, x, y, 0.0F)
                     .setUv(u, v)
                     .setColor(COLOR, COLOR, COLOR, COLOR)
@@ -125,7 +128,7 @@ public class XpOrbRenderer extends EntityRenderer<ExperienceOrb> {
             double d5 = Math.cos(d2) * d4;
             double d6 = Math.sin(d2) * d4;
             double d7 = d1 * d3;
-            orb.level().addParticle(FlashParticleOptions.hex(0xFFC900),
+            orb.level().addParticle(FlashParticleOptions.hex(0xFFC90E),
                     orb.getX() + d5,
                     orb.getY() + 0.25 + d7,
                     orb.getZ() + d6,

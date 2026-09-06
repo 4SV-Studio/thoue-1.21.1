@@ -26,7 +26,7 @@ public class FlashParticle extends TextureSheetParticle {
         public BufferBuilder begin(Tesselator tesselator, TextureManager textures) {
             // Custom thoue:flash shader ignores the lightmap, so the particle
             // never turns black or disappears when the light layer flickers.
-            if (ClientShaders.flash != null) {
+            if (!ShaderpackUtil.isShaderpackActive() && ClientShaders.flash != null) {
                 RenderSystem.setShader(() -> ClientShaders.flash);
                 // Disable fog influence: flashes hug the orbs, so never fade them.
                 RenderSystem.setShaderFogStart(0.0F);
@@ -61,7 +61,7 @@ public class FlashParticle extends TextureSheetParticle {
         this.pickSprite(sprites);
         Vector3f color = options.color();
         this.setColor(color.x(), color.y(), color.z());
-        this.scale(0.425F);
+        this.scale(0.33F);
         this.gravity = 0.05F;
         this.friction = 0.98F;
         this.lifetime = 60;
@@ -76,7 +76,7 @@ public class FlashParticle extends TextureSheetParticle {
     public void tick() {
         super.tick();
         float f = (float) this.age / (float) this.lifetime;
-        this.setAlpha(1.0F - f * f);
+        this.setAlpha(f < 0.6F ? 1.0F : 1.0F - (f - 0.6F) / 0.4F);
     }
 
     @Override
