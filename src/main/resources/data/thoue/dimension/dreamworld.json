@@ -1,0 +1,15 @@
+{
+  "type": "thoue:dreamworld",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "minecraft:the_void",
+      "layers": [
+
+      ],
+      "structures": {
+        "structures": {}
+      }
+    }
+  }
+}
