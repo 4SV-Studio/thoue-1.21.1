@@ -8,6 +8,8 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
+import org.studio4sv.entity.ModEntities;
+import org.studio4sv.item.ModItems;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(TheHeartofUniverseEngine.MODID)
@@ -22,6 +24,11 @@ public class TheHeartofUniverseEngine {
     public TheHeartofUniverseEngine(IEventBus modEventBus, ModContainer modContainer) {
         // Register the Deferred Register for particle types
         ModParticles.PARTICLES.register(modEventBus);
+
+        // Register entities, items and creative mode tab
+        ModEntities.register(modEventBus);
+        ModItems.register(modEventBus);
+        ModCreativeModeTabs.register(modEventBus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

@@ -1,3 +1,26 @@
 {
-  "container.enchant.level.requirement": "Sparks Requirement: %s"
+  "container.enchant.level.requirement": "Sparks Requirement: %s",
+  "container.repair.cost": "Sparks Requirement: %1$s",
+  "creativetab.thoue.mob_spawn_eggs": "THOUE Mob Spawn Eggs",
+  "entity.thoue.bear": "Cursed Bear",
+  "entity.thoue.knight": "Cursed Knight",
+  "entity.thoue.gecko": "Cursed Gecko",
+  "entity.thoue.snake": "Cursed Snake",
+  "entity.thoue.crocodile": "Cursed Crocodile",
+  "entity.thoue.forest_spirit": "Forest Spirit",
+  "entity.thoue.cursed_human": "Cursed Human",
+  "entity.thoue.skint_slime": "Skint Slime",
+  "entity.thoue.skintonit_slime": "Skintonit Slime",
+  "entity.thoue.cursed_villager": "Cursed Villager",
+
+  "item.thoue.bear_spawn_egg": "Cursed Bear Spawn egg",
+  "item.thoue.knight_spawn_egg": "Cursed Knight Spawn egg",
+  "item.thoue.gecko_spawn_egg": "Cursed Gecko Spawn egg",
+  "item.thoue.snake_spawn_egg": "Cursed Snake Spawn egg",
+  "item.thoue.crocodile_spawn_egg": "Cursed Crocodile Spawn egg",
+  "item.thoue.forest_spirit_spawn_egg": "Forest Spirit Spawn egg",
+  "item.thoue.cursed_human_spawn_egg": "Cursed Human Spawn egg",
+  "item.thoue.skint_slime_spawn_egg": "Skint Slime Spawn egg",
+  "item.thoue.skintonit_slime_spawn_egg": "Skintonit Slime Spawn egg",
+  "item.thoue.cursed_villager_spawn_egg": "Cursed Villager Spawn egg"
 }
