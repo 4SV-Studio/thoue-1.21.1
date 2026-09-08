@@ -3,6 +3,7 @@ package org.studio4sv.entity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -17,6 +18,7 @@ import org.studio4sv.entity.custom.CursedVillager;
 import org.studio4sv.entity.custom.ForestSpirit;
 import org.studio4sv.entity.custom.SkintSlime;
 import org.studio4sv.entity.custom.SkintonitSlime;
+import org.studio4sv.entity.custom.SparkSphere;
 
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
@@ -81,6 +83,12 @@ public class ModEntities {
                     .of(CursedVillager::new, MobCategory.MONSTER)
                     .sized(0.6f, 1.95f)
                     .build(TheHeartofUniverseEngine.MODID + ":cursed_villager"));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SparkSphere>> SPARK_SPHERE =
+            ENTITY_TYPES.register("spark_sphere", () -> EntityType.Builder
+                    .of((EntityType<SparkSphere> type, Level level) -> new SparkSphere(type, level), MobCategory.CREATURE)
+                    .sized(0.8f, 0.8f)
+                    .build(TheHeartofUniverseEngine.MODID + ":spark_sphere"));
 
     public static void register(IEventBus modEventBus) {
         ENTITY_TYPES.register(modEventBus);

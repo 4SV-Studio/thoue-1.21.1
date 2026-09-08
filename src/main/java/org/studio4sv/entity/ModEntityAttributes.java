@@ -15,6 +15,7 @@ import org.studio4sv.entity.custom.CursedVillager;
 import org.studio4sv.entity.custom.ForestSpirit;
 import org.studio4sv.entity.custom.SkintSlime;
 import org.studio4sv.entity.custom.SkintonitSlime;
+import org.studio4sv.entity.custom.SparkSphere;
 
 @EventBusSubscriber(modid = TheHeartofUniverseEngine.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class ModEntityAttributes {
@@ -31,5 +32,6 @@ public class ModEntityAttributes {
         event.put(ModEntities.SKINT_SLIME.get(), SkintSlime.createAttributes().build());
         event.put(ModEntities.SKINTONIT_SLIME.get(), SkintonitSlime.createAttributes().build());
         event.put(ModEntities.CURSED_VILLAGER.get(), CursedVillager.createAttributes().build());
+        event.put(ModEntities.SPARK_SPHERE.get(), SparkSphere.createAttributes().build());
     }
 }

@@ -24,6 +24,8 @@ public class ModEntityRenderers {
         register(event, ModEntities.SKINT_SLIME.get(), "skint_slime", null, "skint_slime");
         register(event, ModEntities.SKINTONIT_SLIME.get(), "skint_slime", null, "skintonit_slime");
         register(event, ModEntities.CURSED_VILLAGER.get(), "cursed_villager", "Head", "cursed_villager");
+
+        event.registerEntityRenderer(ModEntities.SPARK_SPHERE.get(), SparkSphereRenderer::new);
     }
 
     private static <T extends ThoMob> void register(EntityRenderersEvent.RegisterRenderers event,
