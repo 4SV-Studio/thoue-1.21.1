@@ -9,6 +9,8 @@
   "client": [
     "AnvilScreenMixin",
     "EnchantmentScreenMixin",
-    "ParticleEngineMixin"
+    "ParticleEngineMixin",
+    "ScreenMenuBackgroundMixin",
+    "TitleScreenMixin"
   ]
 }
